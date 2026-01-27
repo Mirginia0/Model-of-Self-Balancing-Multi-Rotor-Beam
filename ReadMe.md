@@ -20,5 +20,14 @@ The project consists of two main software components:
 - logs measurement data to a dedicated output file
 - recorded data is used for plotting graphs, system analysis, and formulation of conclusions in the thesis
 
+## Repository Contents
+The software components described above are implemented in the following files and directories:
+
+- `Self-Balancing_Beam/`  
+  Contains the Arduino control code described in the *Arduino Control Code* section.
+
+- `Logger.py`  
+  Implements the Python communication and logging tool described in the *Python Communication and Logging Tool* section.
+
 ## Author:
 - Martyna Rydczak
