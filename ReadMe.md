@@ -21,7 +21,9 @@
 <img width="180" src="assets/control-architecture.png" alt="Control-loop diagram created by Martyna Rydczak"><table><thead><tr><th>Arrow</th><th>Signal type</th></tr></thead><tbody><tr><td>····&gt;</td><td>Information signal</td></tr><tr><td>-·-·&gt;</td><td>PWM control signal</td></tr><tr><td>━━&gt;</td><td>Physical interaction</td></tr></tbody></table><p>My control-loop diagram from the thesis presentation. The diagram uses reference minus measured angle; the firmware uses measured minus reference with corresponding motor output signs.</p>
 <p>The firmware includes startup angle calibration, individual motor trims and adjustable controller gains. The reported experiments used P and PI control with <code>Kd = 0</code>.</p>
 <p><strong>Electronic system overview</strong></p><img width="440" src="assets/electronic-design.png" alt="Electronic system overview created by Martyna Rydczak"><table><thead><tr><th>Arrow</th><th>Signal type</th></tr></thead><tbody><tr><td>━━&gt;</td><td>Constant supply voltage</td></tr><tr><td>──&gt;</td><td>Power signal</td></tr><tr><td>····&gt;</td><td>I²C digital data</td></tr><tr><td>-·-·&gt;</td><td>PWM control signal</td></tr></tbody></table><p>My electronic system diagram. The MPU6050 label in the original illustration refers to the IMU module; angle estimation in the experiments used its accelerometer.</p>
-<details><summary>Electronic design · Connection schematics</summary>
+<hr>
+
+<details><summary><strong>Electronic design · Connection schematics</strong></summary>
 <p>I selected and connected the electronic components, integrating the ESP32, MPU6050 and both motor controllers. These schematic excerpts from the thesis presentation document the signal connections and propulsion wiring.</p>
 <table><tr><th>ESP32 connections</th><th>MPU6050 connections</th></tr><tr><td><img src="assets/esp32-connections.png" alt="ESP32 connection schematic from the thesis presentation" width="420"></td><td><img src="assets/imu-connections.png" alt="MPU6050 connection schematic from the thesis presentation" width="420"></td></tr></table>
 <p><strong>ESC and motor connections</strong></p>
