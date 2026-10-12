@@ -7,7 +7,7 @@
 <img width="840" src="assets/beam-overview.png" alt="The assembled beam with motors and protective enclosures">
 <p>The physical prototype with both propulsion units and protective enclosures.</p>
 <h2>See it in action</h2>
-<p><a href="media/recovery-pi.mp4?raw=true"><strong>▶ Open the PI recovery experiment (MP4)</strong></a></p>
+<p><a href="media/recovery-pi.mp4?raw=true"><strong>&gt; Open the PI recovery experiment (MP4)</strong></a></p>
 <p>Recovery after deflection — PI controller.</p>
 <p>The ESP32 estimates beam angle from accelerometer measurements and adjusts both motor commands. A custom Python terminal allows live tuning and records measurements for analysis.</p>
 <blockquote><h2>My contribution · Martyna Rydczak</h2>
@@ -18,9 +18,9 @@
 </blockquote>
 <blockquote><p><strong>Maciej Jaśtak’s contribution</strong></p><p>Maciej built the wooden support and beam structure and prepared the mathematical calculations for the joint thesis.</p></blockquote>
 <h2>How it works</h2>
-<img width="180" src="assets/control-architecture.png" alt="Control-loop diagram created by Martyna Rydczak"><table><thead><tr><th>Arrow</th><th>Signal type</th></tr></thead><tbody><tr><td>····▶</td><td>Information signal</td></tr><tr><td>-·-·▶</td><td>PWM control signal</td></tr><tr><td>━━▶</td><td>Physical interaction</td></tr></tbody></table><p>My control-loop diagram from the thesis presentation. The diagram uses reference minus measured angle; the firmware uses measured minus reference with corresponding motor output signs.</p>
+<img width="180" src="assets/control-architecture.png" alt="Control-loop diagram created by Martyna Rydczak"><table><thead><tr><th>Arrow</th><th>Signal type</th></tr></thead><tbody><tr><td>····&gt;</td><td>Information signal</td></tr><tr><td>-·-·&gt;</td><td>PWM control signal</td></tr><tr><td>━━&gt;</td><td>Physical interaction</td></tr></tbody></table><p>My control-loop diagram from the thesis presentation. The diagram uses reference minus measured angle; the firmware uses measured minus reference with corresponding motor output signs.</p>
 <p>The firmware includes startup angle calibration, individual motor trims and adjustable controller gains. The reported experiments used P and PI control with <code>Kd = 0</code>.</p>
-<p><strong>Electronic system overview</strong></p><img width="440" src="assets/electronic-design.png" alt="Electronic system overview created by Martyna Rydczak"><table><thead><tr><th>Arrow</th><th>Signal type</th></tr></thead><tbody><tr><td>━━▶</td><td>Constant supply voltage</td></tr><tr><td>──▶</td><td>Power signal</td></tr><tr><td>····▶</td><td>I²C digital data</td></tr><tr><td>-·-·▶</td><td>PWM control signal</td></tr></tbody></table><p>My electronic system diagram. The MPU6050 label in the original illustration refers to the IMU module; angle estimation in the experiments used its accelerometer.</p>
+<p><strong>Electronic system overview</strong></p><img width="440" src="assets/electronic-design.png" alt="Electronic system overview created by Martyna Rydczak"><table><thead><tr><th>Arrow</th><th>Signal type</th></tr></thead><tbody><tr><td>━━&gt;</td><td>Constant supply voltage</td></tr><tr><td>──&gt;</td><td>Power signal</td></tr><tr><td>····&gt;</td><td>I²C digital data</td></tr><tr><td>-·-·&gt;</td><td>PWM control signal</td></tr></tbody></table><p>My electronic system diagram. The MPU6050 label in the original illustration refers to the IMU module; angle estimation in the experiments used its accelerometer.</p>
 <details><summary>Electronic design · Connection schematics</summary>
 <p>I selected and connected the electronic components, integrating the ESP32, MPU6050 and both motor controllers. These schematic excerpts from the thesis presentation document the signal connections and propulsion wiring.</p>
 <table><tr><th>ESP32 connections</th><th>MPU6050 connections</th></tr><tr><td><img src="assets/esp32-connections.png" alt="ESP32 connection schematic from the thesis presentation" width="420"></td><td><img src="assets/imu-connections.png" alt="MPU6050 connection schematic from the thesis presentation" width="420"></td></tr></table>
@@ -44,11 +44,17 @@
 <p><strong>What the experiments showed.</strong> Integral action improved steady-state accuracy and rejection of a sustained disturbance, while P control recovered faster in the deflection test. Neither tested configuration provided sufficient damping throughout the experiments. Evaluating the existing derivative term is a potential next step; it was disabled during these tests.</p>
 <p>Original plots use sample number on the horizontal axis.</p>
 
-<details><summary>Hardware and software</summary><ul><li>ESP32, MPU6050 and two A2212 2200KV brushless motors</li><li>Two BLHeli-S 20 A ESCs and EP-6030 propellers</li><li>Arduino firmware: Adafruit MPU6050, Adafruit Unified Sensor, ESP32Servo</li><li>Python terminal: pyserial and prompt_toolkit</li></ul><p>Exact library versions were not recorded.</p></details>
+<hr>
+
+<details><summary><strong>Hardware and software</strong></summary><ul><li>ESP32, MPU6050 and two A2212 2200KV brushless motors</li><li>Two BLHeli-S 20 A ESCs and EP-6030 propellers</li><li>Arduino firmware: Adafruit MPU6050, Adafruit Unified Sensor, ESP32Servo</li><li>Python terminal: pyserial and prompt_toolkit</li></ul><p>Exact library versions were not recorded.</p></details>
 
 
-<details><summary>Running the project</summary><p>Upload <code>Self-Balancing_Beam/Self-Balancing_Beam.ino</code> using an Arduino environment configured for the ESP32. Keep the beam horizontal during startup calibration.</p><pre>python -m pip install pyserial prompt_toolkit
+<hr>
+
+<details><summary><strong>Running the project</strong></summary><p>Upload <code>Self-Balancing_Beam/Self-Balancing_Beam.ino</code> using an Arduino environment configured for the ESP32. Keep the beam horizontal during startup calibration.</p><pre>python -m pip install pyserial prompt_toolkit
 python Logger.py</pre><p>Set the serial port in <code>Logger.py</code>. Communication uses 115200 baud. Send <code>x</code> before exiting: <code>quit</code> closes the terminal without stopping the motors.</p></details>
 
 
-<details><summary>Limitations and further development</summary><p>Accelerometer angle estimation is affected by vibrations. Tuning and motor trims are specific to the prototype. Derivative control is implemented but was not evaluated in the reported experiments. Potential extensions include improved sensor estimation and automated test sequences.</p></details>
+<hr>
+
+<details><summary><strong>Limitations and further development</strong></summary><p>Accelerometer angle estimation is affected by vibrations. Tuning and motor trims are specific to the prototype. Derivative control is implemented but was not evaluated in the reported experiments. Potential extensions include improved sensor estimation and automated test sequences.</p></details>
