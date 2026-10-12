@@ -7,7 +7,7 @@
 <img width="840" src="assets/beam-overview.png" alt="The assembled beam with motors and protective enclosures">
 <p>The physical prototype with both propulsion units and protective enclosures.</p>
 <h2>See it in action</h2>
-<p><a href="media/recovery-pi.mp4"><strong>▶ Watch the PI recovery experiment (video)</strong></a></p>
+<p><a href="media/recovery-pi.mp4?raw=true"><strong>▶ Open the PI recovery experiment (MP4)</strong></a></p>
 <p>Recovery after deflection — PI controller.</p>
 <p>The ESP32 estimates beam angle from accelerometer measurements and adjusts both motor commands. A custom Python terminal allows live tuning and records measurements for analysis.</p>
 <blockquote><h2>My contribution · Martyna Rydczak</h2>
