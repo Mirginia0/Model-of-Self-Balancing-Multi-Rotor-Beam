@@ -38,7 +38,7 @@
 <table><tr><th>P controller · Recovery after deflection</th><th>PI controller · Recovery after deflection</th></tr><tr><td><img src="media/images/recovery-p-plot.png" alt="Recovery after deflection: P controller angle and PWM plots" width="420"></td><td><img src="media/images/recovery-pi-plot.png" alt="Recovery after deflection: PI controller angle and PWM plots" width="420"></td></tr></table>
 <p><strong>Ground-effect disturbance.</strong> Placing a flat surface below one rotor changed its thrust and disturbed the balance. With P control, a persistent deviation from the reference remained. With PI control, the deviation became a transient response and the beam returned towards the horizontal reference. The plots below illustrate this difference.</p>
 
-<table><tr><th>P controller · Ground effect</th><th>PI controller · Ground effect</th></tr><tr><td><img src="media/images/ground-effect-p.png" alt="P controller response to ground effect" width="420"></td><td><img src="media/images/ground-effect-pi.png" alt="PI controller response to ground effect" width="420"></td></tr></table>
+<table><tr><th>P controller · Ground effect</th><th>PI controller · Ground effect</th></tr><tr><td><img src="media/images/ground-effect-p-plot.png" alt="P controller response to ground effect" width="420"></td><td><img src="media/images/ground-effect-pi-plot.png" alt="PI controller response to ground effect" width="420"></td></tr></table>
 <p><strong>Reference-angle changes.</strong> The beam was commanded from 0° to +20°, back to 0°, then to −40° and back to 0°. P control followed the changes but retained tracking offsets and oscillations. PI control converged closer to the commanded angles, although transient oscillations remained after larger changes.</p>
 
 <table><tr><th>P controller · Reference-angle changes</th><th>PI controller · Reference-angle changes</th></tr><tr><td><img src="media/images/reference-p-plot.png" alt="Reference-angle changes: P controller angle and PWM plots" width="420"></td><td><img src="media/images/reference-pi-plot.png" alt="Reference-angle changes: PI controller angle and PWM plots" width="420"></td></tr></table>
@@ -64,4 +64,4 @@ python Logger.py</pre><p>Set the serial port in <code>Logger.py</code>. Communic
 <hr>
 
 <h2>Project files</h2>
-<p>Browse the <a href="media/README.md">photographs, diagrams and test recordings</a>, or the <a href="data/README.md">raw measurements and original EPS plots</a>.</p>
+<p>Browse the <a href="media/README.md">project images, diagrams and test recordings</a>, or the <a href="data/README.md">raw measurements and original EPS plots</a>.</p>
